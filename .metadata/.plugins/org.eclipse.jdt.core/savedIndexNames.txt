@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\ryanchen\WorkSpaces\OpenWeatherAPI\.metadata\.plugins\org.eclipse.jdt.core
+1896386436.index
+1956505065.index
+877806930.index
