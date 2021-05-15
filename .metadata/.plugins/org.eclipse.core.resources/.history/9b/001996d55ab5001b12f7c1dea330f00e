@@ -1,0 +1,73 @@
+package core;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class WeatherForecast {
+
+	public static void main(String[] args) throws IOException, ParseException {
+
+		String apiKey = "5b87f1cb5e0cd821f5ac1144dc3ce1ee";
+		
+		URL url = new URL(
+				"https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,minutely&units=metric&appid=" + apiKey);
+
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+
+		// Getting the response code
+		int responsecode = conn.getResponseCode();
+
+		if (responsecode != 200) {
+			throw new RuntimeException("HttpResponseCode: " + responsecode);
+		} else {
+
+			String inline = "";
+			Scanner scanner = new Scanner(url.openStream());
+
+			// Write all the JSON data into a string using a scanner
+			while (scanner.hasNext()) {
+				inline += scanner.nextLine();
+			}
+
+			// Close the scanner
+			scanner.close();
+
+			// Using the JSON simple library parse the string into a json object
+			JSONParser parse = new JSONParser();
+			JSONObject data_obj = (JSONObject) parse.parse(inline);
+
+			// Get the required object from the above created object
+			JSONArray arr = (JSONArray) data_obj.get("daily");
+
+			int i;
+			int days = 5;
+			for (i = 0; i < days; i++) {
+				JSONObject obj = (JSONObject) arr.get(i);
+				JSONObject temp = (JSONObject) obj.get("temp");
+				Double avgTemp = (Double) temp.get("day");
+				
+				int x = 0;
+				if (avgTemp > 20) {
+					x +=1;
+				}
+				System.out.println(avgTemp);
+
+				
+				
+			}
+
+		}
+	}
+
+}

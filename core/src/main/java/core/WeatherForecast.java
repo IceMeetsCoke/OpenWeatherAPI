@@ -15,8 +15,13 @@ import org.json.simple.parser.ParseException;
 public class WeatherForecast {
 
 	public static void main(String[] args) throws IOException, ParseException {
-		URL url = new URL(
-				"https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,minutely&units=metric&appid=5b87f1cb5e0cd821f5ac1144dc3ce1ee");
+
+		String apiKey = "5b87f1cb5e0cd821f5ac1144dc3ce1ee";
+		double sydLat = 33.51;
+		double sydLon = 151.12;
+
+		URL url = new URL("https://api.openweathermap.org/data/2.5/onecall?lat=" + sydLat + "&lon=" + sydLon
+				+ "&exclude=hourly,minutely&units=metric&appid=" + apiKey);
 
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
@@ -24,8 +29,6 @@ public class WeatherForecast {
 
 		// Getting the response code
 		int responsecode = conn.getResponseCode();
-
-		System.out.println(responsecode);
 
 		if (responsecode != 200) {
 			throw new RuntimeException("HttpResponseCode: " + responsecode);
@@ -42,15 +45,46 @@ public class WeatherForecast {
 			// Close the scanner
 			scanner.close();
 
-			System.out.println(inline);
-
 			// Using the JSON simple library parse the string into a json object
 			JSONParser parse = new JSONParser();
 			JSONObject data_obj = (JSONObject) parse.parse(inline);
-			System.out.println(data_obj);
 
 			// Get the required object from the above created object
-			JSONArray arr = (JSONArray) data_obj.get("daily");
+			JSONArray arrDaily = (JSONArray) data_obj.get("daily");
+
+			int i;
+			int forecastDays = 5;
+			int daysOver20Degrees = 0;
+			int daysSunny = 0;
+			
+			for (i = 0; i < forecastDays; i++) {
+				JSONObject objDaily = (JSONObject) arrDaily.get(i);
+				JSONObject temp = (JSONObject) objDaily.get("temp");
+				Double avgTemp = (Double) temp.get("day");
+//				System.out.println(avgTemp); 
+				
+				if (avgTemp > 20) {
+					daysOver20Degrees += 1;
+				}
+				
+				JSONArray arrWeather = (JSONArray) objDaily.get("weather");
+				JSONObject objWeather = (JSONObject) arrWeather.get(0);
+				long weatherID  = (Long) objWeather.get("id");
+				
+				System.out.println(weatherID);
+				
+				if (weatherID == 800) {
+					daysSunny += 1;
+				}
+				
+
+			}
+			System.out.println("There are " + daysOver20Degrees
+					+ " days in the next five days in Sydney has/have an average temperature over 20 degrees");
+			
+			System.out.println("There are " + daysSunny
+					+ " days in the next five days in Sydney is/are sunny day(s)");
+			
 
 		}
 	}
