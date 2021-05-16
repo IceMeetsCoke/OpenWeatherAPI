@@ -57,7 +57,8 @@ public class WeatherForecast {
 			int daysOver20Degrees = 0;
 			int daysSunny = 0;
 
-			// For each item within the arrDaily, find the max temperature inside each temp object
+			// For each item within the arrDaily, find the max temperature inside each
+			// "temp" object
 			for (i = 0; i < forecastDays; i++) {
 				JSONObject objDaily = (JSONObject) arrDaily.get(i);
 				JSONObject temp = (JSONObject) objDaily.get("temp");
@@ -72,14 +73,14 @@ public class WeatherForecast {
 				JSONObject objWeather = (JSONObject) arrWeather.get(0);
 				long weatherID = (Long) objWeather.get("id");
 
-				// Find the number of days that are sunny days
+				//	Find the number of days that are sunny days
 				if (weatherID == 800) {
 					daysSunny += 1;
 				}
 
 			}
-
-			// Display final results
+			
+			//	Display final results
 			System.out.println("Weather Forecast in the next five days:");
 			System.out.println("Number of days over 20 degrees Celsius: " + daysOver20Degrees);
 			System.out.println("Number of sunny days: " + daysSunny);
