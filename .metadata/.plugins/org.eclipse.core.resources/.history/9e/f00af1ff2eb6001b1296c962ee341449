@@ -39,7 +39,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>core.Main</mainClass>
+							<mainClass>core.WeatherForecast</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
