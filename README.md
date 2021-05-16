@@ -17,9 +17,9 @@ This Java program is designed for providing weather forecast within 5-days perio
 ```
 git clone https://github.com/IceMeetsCoke/OpenWeatherAPI.git
 ```
-* Under the project directory, change directory to core using below first command, then run 2nd line command to generate executable jar file:
+* Under the project directory, change directory to OpenWeatherAPI/core using below first command, then run 2nd line command to generate executable jar file:
 ```
-cd core
+cd OpenWeatherAPI/core
 mvn clean package assembly:single
 ```
 * Under core directory, change directory to target using below first command, then run 2nd command to execute the java program
