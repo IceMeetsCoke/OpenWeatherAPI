@@ -15,8 +15,8 @@ public class WeatherForecastService {
 	
 	// variables "sydLat" and "sydLon" are Latitude and longitude of Sydney
 	static final String apiKey = "5b87f1cb5e0cd821f5ac1144dc3ce1ee";
-	static final double sydLat = 33.51;
-	static final double sydLon = 151.12;
+	static final double sydLat = -33.8679;
+	static final double sydLon = 151.2073;
 	
 	public static void reportWeather() throws IOException, ParseException{
 
