@@ -55,7 +55,8 @@ public class WeatherForecastService {
 			int daysOver20Degrees = 0;
 			int daysSunny = 0;
 
-			// Iterate the array and find the number of days that max temperature is over 20 degrees; also find the number of sunny days
+			// Iterate the array and find the number of days that max temperature is over 20
+			// degrees; also find the number of sunny days
 			for (i = 0; i < forecastPeriod; i++) {
 				JSONObject objDaily = (JSONObject) arrDaily.get(i);
 				JSONObject temp = (JSONObject) objDaily.get("temp");
@@ -81,8 +82,7 @@ public class WeatherForecastService {
 			System.out.println("Number of sunny days: " + daysSunny);
 
 		}
-		
-		//Close the Connection after dealing with the API response
+
 		conn.disconnect();
 
 	}
