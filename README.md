@@ -9,8 +9,8 @@ This tiny service is built on top of the OpenWeather API, which is a free API se
 ### Dependencies
 
 * Operation System: Windows 8/Windows 10
-* Download and install the latest (or recent) version of Git - [Git download link](https://git-scm.com/downloads)
-* Download and install the latest (or recent) version of Maven - [Maven download link](https://maven.apache.org/download.cgi)
+* Download and install the latest (or recent) version of Git - [Git download link](https://git-scm.com/downloads) & [How to install Git](https://phoenixnap.com/kb/how-to-install-git-windows)
+* Download and install the latest (or recent) version of Maven - [Maven download link](https://maven.apache.org/download.cgi) and add set system variables - [How to set Maven path](https://www.baeldung.com/install-maven-on-windows-linux-mac)
 * Download and Install a Java 1.8 (or higher) JDK - [JDK download Link](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) and set system variables - [How to set JDK path](https://java.com/en/download/help/path.html)
 
 ### Installing & Executing program
