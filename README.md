@@ -2,6 +2,8 @@
 
 This Java program is designed for providing weather forecast within 5-days period in Sydney. More specifically, It present to users the number of days that has temperature over 20 degrees Celsuis within the time period, as well as the number of sunny days.
 
+This tiny service is built on top of the OpenWeather API, which is a free API service specialized in providing real-time weather information, please check their website for more information - [OpenWeather API website](https://openweathermap.org/api)
+
 ## Getting Started
 
 ### Dependencies
