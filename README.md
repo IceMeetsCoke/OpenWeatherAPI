@@ -27,4 +27,9 @@ mvn clean package assembly:single
 cd target
 java -jar core-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
-* After executing the jar file, the weather report will be presented in the CLI in the form of text
+* After executing the jar file, the weather report will be presented in the CLI in the form of text looks like below (the numbers are dynamic according to the API response)
+```
+Weather Forecast for the next five days:
+Number of days over 20 degrees Celsius: 2
+Number of sunny days: 0
+```
