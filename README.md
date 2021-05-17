@@ -27,7 +27,7 @@ mvn clean package assembly:single
 * Under core directory, change directory to target using below first command, then run 2nd command to execute the java program
 ```
 cd target
-java -jar core-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+java -jar weather-report-1.0-jar-with-dependencies.jar
 ```
 * After executing the jar file, the weather report will be presented in the CLI in the form of text looks like below (the numbers are dynamic according to the API response)
 ```
